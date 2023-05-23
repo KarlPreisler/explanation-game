@@ -13,17 +13,38 @@ document.addEventListener('DOMContentLoaded', function() {
       if (seconds < 0) {
         clearInterval(timer);
         alert('Time is up');
+        stopGame();
       } else {
         console.log(seconds);
       }
     }, 1000);
+
+  showNextWord(); // Automatically show the first word when the timer starts
+    document.getElementById('next-word-btn').disabled = false; // Enable the next word button
   }
 
   function stopTimer() {
     clearInterval(timer);
     seconds = 30;
+    stopGame();
+  }
+
+  function showNextWord() {
+    if (index < words.length) {
+      const word = words[index];
+      index++;
+      document.getElementById('word-display').textContent = word;
+    } else {
+      stopGame();
+    }
+  }
+
+  function stopGame() {
+    clearInterval(timer);
+    document.getElementById('next-word-btn').disabled = true;
   }
 
   document.getElementById('start-btn').addEventListener('click', startTimer);
   document.getElementById('stop-btn').addEventListener('click', stopTimer);
+  document.getElementById('next-word-btn').addEventListener('click', showNextWord);
 });
