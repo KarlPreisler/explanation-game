@@ -15,8 +15,8 @@ document.addEventListener('DOMContentLoaded', function() {
         seconds--;
         if (seconds < 0) {
           clearInterval(timer);
-          alert('Time is up');
-          stopGame();
+          seconds = 30;
+          updateSecondsDisplay();
         } else {
           updateSecondsDisplay();
           console.log(seconds);
