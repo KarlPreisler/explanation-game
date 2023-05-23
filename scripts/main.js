@@ -7,21 +7,26 @@ document.addEventListener('DOMContentLoaded', function() {
     "flower", "computer", "cat", "bird", "ball", "pen", "mountain", "river", "ocean", "bike"
   ];
 
-  function startTimer() {
-    timer = setInterval(function() {
-      seconds--;
-      if (seconds < 0) {
-        clearInterval(timer);
-        alert('Time is up');
-        stopGame();
-      } else {
-        updateSecondsDisplay();
-        console.log(seconds);
-      }
-    }, 1000);
+  let timerStarted = false;
 
-  showNextWord(); // Automatically show the first word when the timer starts
-    document.getElementById('next-word-btn').disabled = false; // Enable the next word button
+  function startTimer() {
+    if (!timerStarted) {
+      timer = setInterval(function() {
+        seconds--;
+        if (seconds < 0) {
+          clearInterval(timer);
+          alert('Time is up');
+          stopGame();
+        } else {
+          updateSecondsDisplay();
+          console.log(seconds);
+        }
+      }, 1000);
+
+      timerStarted = true;
+      showNextWord(); 
+      document.getElementById('next-word-btn').disabled = false; 
+    }
   }
 
   function stopTimer() {
@@ -42,6 +47,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function stopGame() {
     clearInterval(timer);
+    timerStarted = false;
+    document.getElementById('start-btn').disabled = false;
     document.getElementById('next-word-btn').disabled = true;
   }
 
@@ -52,4 +59,5 @@ document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('start-btn').addEventListener('click', startTimer);
   document.getElementById('stop-btn').addEventListener('click', stopTimer);
   document.getElementById('next-word-btn').addEventListener('click', showNextWord);
+  document.getElementById('restart-btn').addEventListener('click', resetTimer);
 });
