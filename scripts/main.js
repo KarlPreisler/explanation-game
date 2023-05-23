@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
         alert('Time is up');
         stopGame();
       } else {
+        updateSecondsDisplay();
         console.log(seconds);
       }
     }, 1000);
@@ -42,6 +43,10 @@ document.addEventListener('DOMContentLoaded', function() {
   function stopGame() {
     clearInterval(timer);
     document.getElementById('next-word-btn').disabled = true;
+  }
+
+  function updateSecondsDisplay() {
+    document.getElementById('seconds-display').textContent = seconds;
   }
 
   document.getElementById('start-btn').addEventListener('click', startTimer);
