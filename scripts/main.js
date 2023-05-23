@@ -1,6 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
   let timer = null;
   let seconds = 30;
+  let index = 0;
+  const words = [
+    "apple", "table", "car", "dog", "book", "chair", "sun", "phone", "house", "tree",
+    "flower", "computer", "cat", "bird", "ball", "pen", "mountain", "river", "ocean", "bike"
+  ];
 
   function startTimer() {
     timer = setInterval(function() {
