@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   let timerStarted = false;
   let currentTeam = 1;
+  
 
   function startTimer() {
     if (!timerStarted) {
@@ -28,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       timerStarted = true;
       showNextWord();
-      document.getElementById('next-word-btn').disabled = false;
+      document.getElementById('point-btn').disabled = false;
     }
   }
 
@@ -54,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
     clearInterval(timer);
     timerStarted = false;
     document.getElementById('start-btn').disabled = false;
-    document.getElementById('next-word-btn').disabled = true;
+    document.getElementById('point-btn').disabled = true;
   }
 
   function updateSecondsDisplay() {
@@ -74,5 +75,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
   document.getElementById('start-btn').addEventListener('click', startTimer);
   document.getElementById('stop-btn').addEventListener('click', stopTimer);
-  document.getElementById('next-word-btn').addEventListener('click', showNextWord);
+  document.getElementById('point-btn').addEventListener('click', showNextWord);
 });
