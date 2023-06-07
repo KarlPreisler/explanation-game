@@ -5,7 +5,6 @@ html * {
 
 body {
     background-color: rgb(226, 169, 47);
-    margin-top: 20vh;
 }
 
 body, html {
@@ -13,8 +12,8 @@ body, html {
   }
   
   body {
-    background: rgb(195,99,34);
-    background: linear-gradient(0deg, rgba(195,99,34,1) 0%, rgba(253,209,45,1) 100%);
+    background: rgb(232,119,38);
+    background: linear-gradient(0deg, rgba(232,119,38,1) 0%, rgba(253,209,45,1) 100%);
   }
 
 
