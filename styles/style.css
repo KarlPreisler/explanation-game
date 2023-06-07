@@ -1,13 +1,27 @@
 html * {
     font-family: 'Roboto', sans-serif;
-    font-size: large;
     font-weight: 800;
 }
 
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-color: rgb(226, 169, 47);
-    margin-top: 10vh;
+    margin-top: 20vh;
 }
+
+body, html {
+    height: 100%;
+  }
+  
+  body {
+    background: rgb(195,99,34);
+    background: linear-gradient(0deg, rgba(195,99,34,1) 0%, rgba(253,209,45,1) 100%);
+  }
+
+
+#word-display {
+    font-weight: 900;
+}
+
+button.btn {
+    border: 1px solid black;
+  }

@@ -3,13 +3,14 @@ document.addEventListener('DOMContentLoaded', function() {
   let seconds = 30;
   let index = 0;
   const words = [
-    "apple", "table", "car", "dog", "book", "chair", "sun", "phone", "house", "tree",
-    "flower", "computer", "cat", "bird", "ball", "pen", "mountain", "river", "ocean", "bike"
+    "Apple", "Table", "Car", "Dog", "Book", "Chair", "Sun", "Phone", "House", "Tree",
+    "Flower", "Computer", "Cat", "Bird", "Ball", "Pen", "Mountain", "River", "Ocean", "Bike"
   ];
 
   let timerStarted = false;
   let currentTeam = 1;
-  
+  let team1Score = 0;
+  let team2Score = 0;
 
   function startTimer() {
     if (!timerStarted) {
@@ -30,6 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
       timerStarted = true;
       showNextWord();
       document.getElementById('point-btn').disabled = false;
+      document.getElementById('pass-btn').disabled = false;
     }
   }
 
@@ -56,6 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
     timerStarted = false;
     document.getElementById('start-btn').disabled = false;
     document.getElementById('point-btn').disabled = true;
+    document.getElementById('pass-btn').disabled = true;
   }
 
   function updateSecondsDisplay() {
@@ -69,11 +72,31 @@ document.addEventListener('DOMContentLoaded', function() {
       currentTeam = 1;
     }
 
-    // Update the team display
+
     document.getElementById('team-display').textContent = 'Team ' + currentTeam;
   }
 
+  function updateScoresDisplay() {
+    const scoreDisplay = document.getElementById('score-display');
+    scoreDisplay.textContent = 'Team 1: ' + team1Score + '  |  Team 2: ' + team2Score;
+  }
+
+  function incrementScore() {
+    if (currentTeam === 1) {
+      team1Score++;
+    } else {
+      team2Score++;
+    }
+    updateScoresDisplay();
+  }
+
+  updateScoresDisplay();
+
   document.getElementById('start-btn').addEventListener('click', startTimer);
   document.getElementById('stop-btn').addEventListener('click', stopTimer);
-  document.getElementById('point-btn').addEventListener('click', showNextWord);
+  document.getElementById('point-btn').addEventListener('click', function() {
+    incrementScore();
+    showNextWord();
+  });
+  document.getElementById('pass-btn').addEventListener('click', showNextWord);
 });
