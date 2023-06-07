@@ -12,8 +12,14 @@ document.addEventListener('DOMContentLoaded', function() {
   let team1Score = 0;
   let team2Score = 0;
 
+  document.getElementById('seconds-text').style.display = 'none';
+
   function startTimer() {
     if (!timerStarted) {
+      updateSecondsDisplay();
+    document.getElementById('seconds-display').style.display = 'inline';
+    document.getElementById('seconds-text').style.display = 'inline';
+
       timer = setInterval(function() {
         seconds--;
         if (seconds < 0) {
@@ -60,6 +66,8 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('start-btn').style.display = 'block';
     document.getElementById('point-btn').disabled = true;
     document.getElementById('pass-btn').disabled = true;
+    document.getElementById('seconds-display').style.display = 'none';
+    document.getElementById('seconds-text').style.display = 'none';
   }
 
   function updateSecondsDisplay() {
