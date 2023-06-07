@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function updateScoresDisplay() {
     const scoreDisplay = document.getElementById('score-display');
-    scoreDisplay.textContent = 'Team 1: ' + team1Score + '  |  Team 2: ' + team2Score;
+    scoreDisplay.textContent = 'Lag 1: ' + team1Score + '  |  Lag 2: ' + team2Score;
   }
 
   function incrementScore() {
