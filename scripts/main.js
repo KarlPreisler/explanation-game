@@ -86,8 +86,15 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function updateScoresDisplay() {
-    const scoreDisplay = document.getElementById('score-display');
-    scoreDisplay.textContent = 'Lag 1: ' + team1Score + '  |  Lag 2: ' + team2Score;
+    const team1ScoreDisplay = document.getElementById('team1-score');
+    const team2ScoreDisplay = document.getElementById('team2-score');
+    team1ScoreDisplay.textContent = team1Score;
+    team2ScoreDisplay.textContent = team2Score;
+  
+    const team1NameDisplay = document.getElementById('team1-name');
+    const team2NameDisplay = document.getElementById('team2-name');
+    team1NameDisplay.textContent = 'Lag 1';
+    team2NameDisplay.textContent = 'Lag 2';
   }
 
   function incrementScore() {
