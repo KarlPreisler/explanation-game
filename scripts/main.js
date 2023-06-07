@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
   ];
 
   let timerStarted = false;
+  let currentTeam = 1;
 
   function startTimer() {
     if (!timerStarted) {
@@ -17,6 +18,8 @@ document.addEventListener('DOMContentLoaded', function() {
           clearInterval(timer);
           seconds = 30;
           updateSecondsDisplay();
+          stopGame();
+          switchTeam();
         } else {
           updateSecondsDisplay();
           console.log(seconds);
@@ -24,8 +27,8 @@ document.addEventListener('DOMContentLoaded', function() {
       }, 1000);
 
       timerStarted = true;
-      showNextWord(); 
-      document.getElementById('next-word-btn').disabled = false; 
+      showNextWord();
+      document.getElementById('next-word-btn').disabled = false;
     }
   }
 
@@ -33,6 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
     clearInterval(timer);
     seconds = 30;
     stopGame();
+    switchTeam();
   }
 
   function showNextWord() {
@@ -42,6 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
       document.getElementById('word-display').textContent = word;
     } else {
       stopGame();
+      switchTeam();
     }
   }
 
@@ -56,8 +61,18 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('seconds-display').textContent = seconds;
   }
 
+  function switchTeam() {
+    if (currentTeam === 1) {
+      currentTeam = 2;
+    } else {
+      currentTeam = 1;
+    }
+
+    // Update the team display
+    document.getElementById('team-display').textContent = 'Team ' + currentTeam;
+  }
+
   document.getElementById('start-btn').addEventListener('click', startTimer);
   document.getElementById('stop-btn').addEventListener('click', stopTimer);
   document.getElementById('next-word-btn').addEventListener('click', showNextWord);
-  document.getElementById('restart-btn').addEventListener('click', resetTimer);
 });
