@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
       showNextWord();
       document.getElementById('point-btn').disabled = false;
       document.getElementById('pass-btn').disabled = false;
+      document.getElementById('start-btn').style.display = 'none';
     }
   }
 
@@ -56,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
   function stopGame() {
     clearInterval(timer);
     timerStarted = false;
-    document.getElementById('start-btn').disabled = false;
+    document.getElementById('start-btn').style.display = 'block';
     document.getElementById('point-btn').disabled = true;
     document.getElementById('pass-btn').disabled = true;
   }
@@ -73,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 
-    document.getElementById('team-display').textContent = 'Team ' + currentTeam;
+    document.getElementById('team-display').textContent = 'Lag ' + currentTeam;
   }
 
   function updateScoresDisplay() {
