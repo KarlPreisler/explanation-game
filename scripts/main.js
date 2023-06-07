@@ -1,4 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
+  const popupOverlay = document.querySelector('.popup-overlay');
+  const closeBtn = document.querySelector('.close-btn');
+
+  closeBtn.addEventListener('click', function() {
+    popupOverlay.style.display = 'none';
+});
+
   let timer = null;
   let seconds = 30;
   let index = 0;

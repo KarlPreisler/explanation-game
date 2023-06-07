@@ -15,18 +15,27 @@
     <title>Med andra ord</title>
 </head>
 <body>
+    <div class="popup-overlay">
+        <div class="popup-content">
+            <p class="h1">Regler</p>
+            <p class="h4">Dela upp deltagarna i två lag och bestäm vilket lag som börjar.</p>
+            <p class="h4">Ge telefonen till en deltagare i det börjande laget. Personen får ett ord och ska förklara det med andra ord.</p>
+            <p class="h4">De andra i laget ska gissa vilket ordet är.</p>
+            <span class="close-btn">&times;</span>
+        </div>
+    </div>
     <div class="container">
         <div class="d-flex justify-content-center m-3">
             <h1 class="mt-5">Med andra ord</h1>
         </div>
         <div class="d-flex justify-content-center mt-2">
-            <p class="h5">Poäng:</p>        
+            <p class="h4">Poäng:</p>        
+        </div>
+        <div class="d-flex justify-content-center">
+            <p class="h4"><span id="team1-name"></span> | <span id="team2-name"></span></p>
         </div>
         <div class="d-flex justify-content-center mb-2">
             <p class="team-scores"><span id="team1-score" class="score-number"></span> | <span id="team2-score" class="score-number"></span></p>
-        </div>
-        <div class="d-flex justify-content-center mb-2">
-            <p class="h3"><span id="team1-name"></span> | <span id="team2-name"></span></p>
         </div>
         <div class="d-flex justify-content-center m-2">
             <p class="h3">Tur: <span id="team-display">Lag 1</span></p>
