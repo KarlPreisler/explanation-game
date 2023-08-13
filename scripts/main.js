@@ -11,7 +11,17 @@ document.addEventListener('DOMContentLoaded', function() {
   let index = 0;
   const words = [
     "Apple", "Table", "Car", "Dog", "Book", "Chair", "Sun", "Phone", "House", "Tree",
-    "Flower", "Computer", "Cat", "Bird", "Ball", "Pen", "Mountain", "River", "Ocean", "Bike"
+    "Flower", "Computer", "Cat", "Bird", "Ball", "Pen", "Mountain", "River", "Ocean", "Bike",
+    "Tablet", "Lamp", "Door", "Shoe", "Hat", "Cloud", "Bookshelf", "Cup", "Clock", "Window",
+    "Carpet", "Guitar", "Mirror", "Bag", "Piano", "Camera", "Key", "Bridge", "Leaf", "Moon",
+    "Rock", "Sunset", "Rainbow", "Flag", "Rain", "Star", "Beach", "Snow", "Wave", "Wind",
+    "Fire", "Island", "River", "Sea", "Sky", "Storm", "Candle", "Chair", "Blanket", "Pizza",
+    "Computer", "Desk", "Plant", "Hat", "Coffee", "Bookcase", "Plate", "Fan", "Clock",
+    "Painting", "Hat", "Basket", "Guitar", "Mirror", "Backpack", "Plant", "Laptop", "Lock",
+    "Drawer", "Tennis", "Shirt", "Hat", "Table", "Coat", "Shirt", "Coffee", "Sofa", "TV",
+    "Laptop", "Spoon", "Bowl", "Fork", "Knife", "Dish", "Pan", "Pot", "Stove", "Bed", 
+    "Pillow", "Mirror", "Curtain", "Phone", "Table", "Chair", "Drawer", "Lamp", "Carpet",
+    "Mirror", "Guitar", "Shoe", "Bike", "Jacket", "Hat", "Couch", "Table", "Lamp"
   ];
 
   let timerStarted = false;
@@ -37,6 +47,8 @@ document.addEventListener('DOMContentLoaded', function() {
           switchTeam();
         } else {
           updateSecondsDisplay();
+          document.getElementById('seconds-display').style.color = seconds < 10 ? 'red' : '';
+          document.getElementById('seconds-text').style.color = seconds < 10 ? 'red' : '';
           console.log(seconds);
         }
       }, 1000);
@@ -54,6 +66,8 @@ document.addEventListener('DOMContentLoaded', function() {
     seconds = 30;
     stopGame();
     switchTeam();
+    document.getElementById('word-display').style.display = 'none';
+
   }
 
   function showNextWord() {
